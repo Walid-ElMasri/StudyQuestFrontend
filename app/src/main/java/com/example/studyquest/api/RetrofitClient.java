@@ -1,5 +1,7 @@
 package com.example.studyquest.api;
 
+import com.example.studyquest.BuildConfig;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -8,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://study-quest-mobile-app.vercel.app/";
+    private static final String BASE_URL = BuildConfig.API_BASE_URL;
 
     public static Retrofit getClient() {
         if (retrofit == null) {

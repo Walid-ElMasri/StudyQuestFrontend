@@ -17,6 +17,7 @@ import retrofit2.Response;
 public class TextAiActivity extends AppCompatActivity {
 
     private EditText promptEdit;
+    private EditText usernameEdit;
     private TextView responseText;
     private ProgressBar progressBar;
     private ApiService api;
@@ -28,6 +29,7 @@ public class TextAiActivity extends AppCompatActivity {
 
         api = RetrofitClient.getClient().create(ApiService.class);
 
+        usernameEdit = findViewById(R.id.editAiUser);
         promptEdit = findViewById(R.id.editPrompt);
         responseText = findViewById(R.id.textAiResponse);
         progressBar = findViewById(R.id.progressBarAi);
@@ -37,16 +39,22 @@ public class TextAiActivity extends AppCompatActivity {
     }
 
     private void sendPrompt() {
+        String username = usernameEdit.getText().toString().trim();
         String prompt = promptEdit.getText().toString().trim();
+        if (username.isEmpty()) {
+            usernameEdit.setError("Required");
+            return;
+        } else usernameEdit.setError(null);
+
         if (prompt.isEmpty()) {
             promptEdit.setError("Required");
             return;
-        }
+        } else promptEdit.setError(null);
 
         progressBar.setVisibility(ProgressBar.VISIBLE);
         responseText.setText("");
 
-        TextAiRequest req = new TextAiRequest(prompt);
+        TextAiRequest req = new TextAiRequest(username, prompt);
 
         api.askTextAi(req).enqueue(new Callback<TextAiResponse>() {
             @Override
@@ -67,4 +75,3 @@ public class TextAiActivity extends AppCompatActivity {
         });
     }
 }
-

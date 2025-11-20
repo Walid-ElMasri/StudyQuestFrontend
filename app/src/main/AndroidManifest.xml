@@ -13,7 +13,8 @@
         android:label="StudyQuest"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StudyQuest">
+        android:theme="@style/Theme.StudyQuest"
+        android:usesCleartextTraffic="true">
 
         <!-- Other screens -->
         <activity android:name=".ApiPlaygroundActivity" />
