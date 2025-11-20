@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="API Playground"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Shared inputs -->
+        <EditText
+            android:id="@+id/editUsernameApi"
+            android:hint="username / from_user"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editEmailApi"
+            android:hint="email (for create user)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editExtra1"
+            android:hint="extra1 (minutes / quest_id / to_user / answer / avatar_style / badge name)"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editExtra2"
+            android:hint="extra2 (subject / description / action)"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/editExtra3"
+            android:hint="extra3 (reward_xp / min_xp)"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- USER / DASHBOARD -->
+        <TextView
+            android:text="Users / Dashboard"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnCreateUser"
+                android:text="POST /users/"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnListUsers"
+                android:text="GET /users/"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDashboard"
+            android:text="GET /home/dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- PROGRESS -->
+        <TextView
+            android:text="Progress"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnLogProgress"
+            android:text="POST /progress/"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnListProgress"
+            android:text="GET /progress/"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnProgressStats"
+            android:text="GET /progress/stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- QUESTS -->
+        <TextView
+            android:text="Quests"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCreateQuest"
+            android:text="POST /quests/"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCompleteQuest"
+            android:text="PUT /quests/{id}/complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnUserLevel"
+            android:text="GET /quests/level/{username}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- COSMETICS -->
+        <TextView
+            android:text="Cosmetics"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAvatarUpsert"
+            android:text="POST /cosmetics/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAvatarGet"
+            android:text="GET /cosmetics/avatar/{username}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCreateBadge"
+            android:text="POST /cosmetics/badge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnListBadges"
+            android:text="GET /cosmetics/badges"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- TEXT AI HISTORY -->
+        <TextView
+            android:text="Text AI History"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAiHistory"
+            android:text="GET /text-ai/?user="
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- BOSS -->
+        <TextView
+            android:text="Boss Battle (extra endpoints)"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnBossAnswer"
+            android:text="POST /boss/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnBossStatus"
+            android:text="GET /boss/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- SOCIAL -->
+        <TextView
+            android:text="Social / Leaderboard"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnAddFriend"
+            android:text="POST /social/friends/add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnRespondFriend"
+            android:text="PATCH /social/friends/respond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnLeaderboard"
+            android:text="GET /social/leaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- OUTPUT -->
+        <TextView
+            android:id="@+id/textApiOutput"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Output will appear here..."
+            android:textIsSelectable="true" />
+
+    </LinearLayout>
+</ScrollView>

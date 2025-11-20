@@ -16,6 +16,7 @@
         android:theme="@style/Theme.StudyQuest">
 
         <!-- Other screens -->
+        <activity android:name=".ApiPlaygroundActivity" />
         <activity android:name=".TextAiActivity" />
         <activity android:name=".BossActivity" />
         <activity android:name=".ProgressActivity" />
