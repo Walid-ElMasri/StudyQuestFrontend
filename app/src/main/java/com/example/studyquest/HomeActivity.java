@@ -1,5 +1,6 @@
 package com.example.studyquest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 
@@ -31,8 +32,20 @@ public class HomeActivity extends AppCompatActivity {
         result = findViewById(R.id.textResult);
         progress = findViewById(R.id.progressBar);
         Button btn = findViewById(R.id.btnLoadUser);
+        Button social = findViewById(R.id.btnSocialHub);
+        Button quests = findViewById(R.id.btnQuestsLevels);
+        Button boss = findViewById(R.id.btnBossBattle);
+        Button tracker = findViewById(R.id.btnProgressTracker);
+        Button cosmetics = findViewById(R.id.btnCosmetics);
+        Button mentor = findViewById(R.id.btnVoiceMentor);
 
         btn.setOnClickListener(v -> loadUser());
+        social.setOnClickListener(v -> openPlayground("Jumping to friends, leaderboard, and invites."));
+        quests.setOnClickListener(v -> openPlayground("Open quests, levels, and rewards in the playground."));
+        cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
+        boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
+        tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));
+        mentor.setOnClickListener(v -> startActivity(new Intent(this, TextAiActivity.class)));
     }
 
     void loadUser() {
@@ -68,5 +81,10 @@ public class HomeActivity extends AppCompatActivity {
                 result.setText("Error: " + t.getMessage());
             }
         });
+    }
+
+    private void openPlayground(String toast) {
+        startActivity(new Intent(this, ApiPlaygroundActivity.class));
+        Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
     }
 }

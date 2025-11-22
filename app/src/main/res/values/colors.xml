@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="midnight">#0F172A</color>
+    <color name="deep_slate">#111827</color>
+    <color name="accent_teal">#14B8A6</color>
+    <color name="accent_gold">#F59E0B</color>
+    <color name="frost">#E5E7EB</color>
+    <color name="card_overlay">#1F2937</color>
+    <color name="button_tint">#10B981</color>
+    <color name="button_tint_pressed">#0EA172</color>
 </resources>
