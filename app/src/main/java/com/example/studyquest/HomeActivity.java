@@ -2,6 +2,7 @@ package com.example.studyquest;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.studyquest.api.ApiService;
 import com.example.studyquest.api.RetrofitClient;
 import com.example.studyquest.models.User;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,8 +53,8 @@ public class HomeActivity extends AppCompatActivity {
 
     void loadUser() {
         String u = username.getText().toString().trim();
-        if (u.isEmpty()) {
-            username.setError("Required");
+        if (TextUtils.isEmpty(u)) {
+            username.setError("Username is required.");
             return;
         }
 
@@ -71,14 +74,23 @@ public class HomeActivity extends AppCompatActivity {
                                     "\nJoin Date: " + user.join_date
                     );
                 } else {
-                    result.setText("User not found");
+                    // Handle API errors gracefully
+                    String errorBody = "Unknown error";
+                    if (response.errorBody() != null) {
+                        try {
+                            errorBody = response.errorBody().string();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    result.setText("Error: " + response.code() + " - " + errorBody);
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 progress.setVisibility(ProgressBar.GONE);
-                result.setText("Error: " + t.getMessage());
+                result.setText("Network Error: " + t.getMessage());
             }
         });
     }
