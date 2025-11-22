@@ -165,6 +165,10 @@ public class ProgressActivity extends AppCompatActivity {
                             result.setText(sb.toString());
                             summary.setText("Newest session: +" + body.gained_xp + " XP from "
                                     + minutes + " minutes");
+
+                            // Pull fresh history so the timeline and totals update right away.
+                            resetTimer();
+                            loadProgress();
                         } else {
                             result.setText("Error logging session: " + resp.code());
                         }

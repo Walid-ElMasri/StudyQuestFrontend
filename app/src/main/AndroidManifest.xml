@@ -21,11 +21,11 @@
         <activity android:name=".TextAiActivity" />
         <activity android:name=".BossActivity" />
         <activity android:name=".ProgressActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity" />
 
         <!-- Launcher screen -->
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
