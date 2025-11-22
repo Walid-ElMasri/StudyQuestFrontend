@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="Quests & Levels"
+                        android:text="Quests &amp; Levels"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -246,7 +246,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="Cosmetics & Rewards"
+                        android:text="Cosmetics &amp; Rewards"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="16sp"
