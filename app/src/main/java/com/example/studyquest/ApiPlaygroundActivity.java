@@ -396,17 +396,19 @@ public class ApiPlaygroundActivity extends AppCompatActivity {
         String from = editUsername.getText().toString().trim();
         String to = editExtra1.getText().toString().trim();
         String action = editExtra2.getText().toString().trim(); // accept / decline / block
+
         if (from.isEmpty()) { editUsername.setError("from_user"); return; }
         if (to.isEmpty()) { editExtra1.setError("to_user"); return; }
         if (action.isEmpty()) { editExtra2.setError("action"); return; }
 
-        FriendRespondRequest req = new FriendRespondRequest(from, to, action);
-        api.respondFriend(req).enqueue(new Callback<GenericMessageResponse>() {
-            @Override public void onResponse(Call<GenericMessageResponse> call, Response<GenericMessageResponse> resp) {
+        api.respondFriend(from, to, action).enqueue(new Callback<GenericMessageResponse>() {
+            @Override
+            public void onResponse(Call<GenericMessageResponse> call, Response<GenericMessageResponse> resp) {
                 if (resp.isSuccessful() && resp.body() != null) setOutput(resp.body().toString());
                 else setOutput("Error respond friend: " + resp.code());
             }
-            @Override public void onFailure(Call<GenericMessageResponse> call, Throwable t) {
+            @Override
+            public void onFailure(Call<GenericMessageResponse> call, Throwable t) {
                 setOutput("Error: " + t.getMessage());
             }
         });
