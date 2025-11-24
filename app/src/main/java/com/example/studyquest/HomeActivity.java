@@ -43,7 +43,11 @@ public class HomeActivity extends AppCompatActivity {
         Button mentor = findViewById(R.id.btnVoiceMentor);
 
         btn.setOnClickListener(v -> loadUser());
-        social.setOnClickListener(v -> openPlayground("Jumping to friends, leaderboard, and invites."));
+
+        // Open real SocialActivity screen
+        social.setOnClickListener(v -> startActivity(new Intent(this, SocialActivity.class)));
+
+        // Open QuestsActivity and pass username
         quests.setOnClickListener(v -> {
             String u = username.getText().toString().trim();
             if (TextUtils.isEmpty(u)) {
@@ -54,6 +58,12 @@ public class HomeActivity extends AppCompatActivity {
             i.putExtra("username", u);
             startActivity(i);
         });
+
+        cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
+        boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
+        tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));
+        mentor.setOnClickListener(v -> startActivity(new Intent(this, TextAiActivity.class)));
+
         cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
         boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
         tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));

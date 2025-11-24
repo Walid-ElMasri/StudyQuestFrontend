@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -119,13 +120,29 @@ public interface ApiService {
 
     // PATCH /social/friends/respond
     @PATCH("social/friends/respond")
-    Call<GenericMessageResponse> respondFriend(@Body FriendRespondRequest request);
+    Call<GenericMessageResponse> respondFriend(
+            @Query("user") String user,
+            @Query("friend_username") String friendUsername,
+            @Query("action") String action
+    );
 
     // GET /social/leaderboard
     @GET("social/leaderboard")
     Call<List<LeaderboardEntry>> getLeaderboard();
 
+    // GET /social/friends/list
+    @GET("social/friends/list")
+    Call<List<Friend>> listFriends(@Query("user") String username);
+
+    // DELETE /social/friends/remove
+    @DELETE("social/friends/remove")
+    Call<GenericMessageResponse> removeFriend(
+            @Query("user") String user,
+            @Query("friend_username") String friendUsername
+    );
+
+    // POST /ai/flashcards
     @POST("/ai/flashcards")
     Call<FlashcardResponse> generateFlashcards(@Body FlashcardRequest request);
-
 }
+

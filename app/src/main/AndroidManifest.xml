@@ -26,6 +26,7 @@
         <activity android:name=".TimerQuestActivity" />
         <activity android:name=".FlashcardQuestActivity" />
         <activity android:name=".CalendarQuestActivity" />
+        <activity android:name=".SocialActivity" />
 
 
         <!-- Launcher screen -->
