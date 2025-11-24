@@ -2,15 +2,15 @@ package com.example.studyquest.models;
 
 public class QuestLevelData {
     public String user;
-    public int level;
-    public int current_xp;
-    public int xp_for_next;
+    public int current_level;
+    public int total_xp;
+    public int xp_to_next_level;
 
     @Override
     public String toString() {
         return "User: " + user +
-                "\nLevel: " + level +
-                "\nXP: " + current_xp + "/" + xp_for_next;
+                "\nLevel: " + current_level +
+                "\nXP: " + total_xp +
+                "\nXP to next level: " + xp_to_next_level;
     }
 }
-

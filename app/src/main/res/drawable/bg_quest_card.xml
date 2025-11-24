@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Rounded corners -->
+    <corners android:radius="18dp" />
+
+    <!-- 50% opacity fill: AB30FF -> 80AB30FF -->
+    <solid android:color="#80AB30FF" />
+
+    <!-- Single border: width 5dp, 50% opacity BE61FD -> 80BE61FD -->
+    <stroke
+        android:width="5dp"
+        android:color="#80BE61FD" />
+
+</shape>

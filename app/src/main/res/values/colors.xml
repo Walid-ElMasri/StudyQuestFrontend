@@ -10,4 +10,8 @@
     <color name="card_overlay">#1F2937</color>
     <color name="button_tint">#10B981</color>
     <color name="button_tint_pressed">#0EA172</color>
+    <color name="calendar_text_white">#FFFFFF</color>
+    <color name="calendar_text_dim">#88FFFFFF</color>
+    <color name="calendar_selected_purple">#AB30FF</color>
+    <color name="calendar_neon_blue">#6EC3FF</color>
 </resources>

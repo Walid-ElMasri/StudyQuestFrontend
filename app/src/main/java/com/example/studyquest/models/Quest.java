@@ -2,15 +2,16 @@ package com.example.studyquest.models;
 
 public class Quest {
     public int id;
-    public String title;
+    public String name;
     public String description;
-    public int reward_xp;
+    public int xp_reward;
     public boolean completed;
+    public String quest_type;
+
 
     @Override
     public String toString() {
-        return "#" + id + " " + title + " (" + reward_xp + " XP)" +
+        return "#" + id + " " + name + " (" + xp_reward + " XP)" +
                 (completed ? " [DONE]" : "");
     }
 }
-

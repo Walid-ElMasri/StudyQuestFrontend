@@ -54,13 +54,20 @@ public interface ApiService {
     @POST("quests/")
     Call<Quest> createQuest(@Body QuestCreateRequest request);
 
-    // PUT /quests/{quest_id}/complete
-    @PUT("quests/{quest_id}/complete")
-    Call<QuestCompleteResponse> completeQuest(@Path("quest_id") int questId);
+    // GET /quests/available?user=
+    @GET("quests/available")
+    Call<AvailableQuestsResponse> getAvailableQuests(@Query("user") String username);
 
-    // GET /quests/level/{username}
-    @GET("quests/level/{username}")
-    Call<QuestLevelData> getUserLevel(@Path("username") String username);
+    // POST /quests/complete/{quest_id}?user=
+    @POST("quests/complete/{quest_id}")
+    Call<QuestCompleteResponse> completeQuest(
+            @Path("quest_id") int questId,
+            @Query("user") String username
+    );
+
+    // GET /quests/levels?user=
+    @GET("quests/levels")
+    Call<QuestLevelData> getUserLevel(@Query("user") String username);
 
 
     // ---------- COSMETICS ----------
@@ -117,4 +124,8 @@ public interface ApiService {
     // GET /social/leaderboard
     @GET("social/leaderboard")
     Call<List<LeaderboardEntry>> getLeaderboard();
+
+    @POST("/ai/flashcards")
+    Call<FlashcardResponse> generateFlashcards(@Body FlashcardRequest request);
+
 }

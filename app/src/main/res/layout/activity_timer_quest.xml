@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#0B0F2A"
+    android:padding="24dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25:00"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        android:fontFamily="@font/jersey15_regular" />
+
+    <Button
+        android:id="@+id/btnStartTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Focus Sprint"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/btnGiveUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Give up"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>

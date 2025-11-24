@@ -44,7 +44,16 @@ public class HomeActivity extends AppCompatActivity {
 
         btn.setOnClickListener(v -> loadUser());
         social.setOnClickListener(v -> openPlayground("Jumping to friends, leaderboard, and invites."));
-        quests.setOnClickListener(v -> openPlayground("Open quests, levels, and rewards in the playground."));
+        quests.setOnClickListener(v -> {
+            String u = username.getText().toString().trim();
+            if (TextUtils.isEmpty(u)) {
+                username.setError("Username is required.");
+                return;
+            }
+            Intent i = new Intent(this, QuestsActivity.class);
+            i.putExtra("username", u);
+            startActivity(i);
+        });
         cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
         boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
         tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));
