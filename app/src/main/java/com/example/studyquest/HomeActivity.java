@@ -43,8 +43,22 @@ public class HomeActivity extends AppCompatActivity {
         Button mentor = findViewById(R.id.btnVoiceMentor);
 
         btn.setOnClickListener(v -> loadUser());
+
+        // Open real SocialActivity screen
         social.setOnClickListener(v -> startActivity(new Intent(this, SocialActivity.class)));
-        quests.setOnClickListener(v -> openPlayground("Open quests, levels, and rewards in the playground."));
+
+        // Open QuestsActivity and pass username
+        quests.setOnClickListener(v -> {
+            String u = username.getText().toString().trim();
+            if (TextUtils.isEmpty(u)) {
+                username.setError("Username is required.");
+                return;
+            }
+            Intent i = new Intent(this, QuestsActivity.class);
+            i.putExtra("username", u);
+            startActivity(i);
+        });
+
         cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
         boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
         tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));

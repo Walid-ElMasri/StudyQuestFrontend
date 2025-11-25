@@ -1,308 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient">
+    android:background="#0B0F2A">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="20dp"
+    <!-- FULL-WIDTH HEADER IMAGE (NO SPACE TOP/SIDES) -->
+
+    <!-- CONTENT AREA (SCROLLABLE) -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textHeadline"
-            android:text="StudyQuest Hub"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:text="Jump into socials, quests, boss battles, and your mentor from one place."
-            android:textColor="@color/frost"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
-            android:background="@drawable/bg_card"
-            android:layout_marginTop="16dp"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/headerImage"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:src="@drawable/header"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true" />
+            
+
+            <!-- Main title -->
             <TextView
-                android:text="Profile Snapshot"
-                android:textColor="@color/white"
+                android:id="@+id/textHeadline"
+                android:text="StudyQuest Hub"
+                android:textSize="28sp"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/jersey15_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/editUsername"
-                android:hint="Enter username"
-                android:textColor="@color/white"
-                android:textColorHint="@color/frost"
+            <!-- Subtitle -->
+            <TextView
+                android:text="Jump into quests, battles, socials, and tracking from one place."
+                android:textColor="#A0B3FF"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- PROFILE CARD -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Profile Snapshot"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textUsernameLabel"
+                    android:text="Username"
+                    android:textColor="#A0B3FF"
+                    android:textSize="12sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/editUsername"
+                    android:hint="Enter username"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#A0B3FF"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="4dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btnLoadUser"
+                    android:text="Load Profile"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_primary_button"
+                    android:layout_marginTop="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textResult"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A0B3FF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- NAV SECTION TITLE -->
+            <TextView
+                android:text="Where to next?"
+                android:textColor="#A0B3FF"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- FEATURE CARDS GRID -->
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btnLoadUser"
-                android:text="Load Profile"
-                android:textColor="@color/white"
-                android:background="@drawable/bg_primary_button"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <!-- ROW 1: Social + Quests -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:visibility="gone"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                    <!-- Social Hub -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textResult"
-                android:layout_marginTop="14dp"
-                android:textColor="@color/frost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Social Hub"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Friends, leaderboards, and your squad."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnSocialHub"
+                            android:text="Open Socials"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <!-- Quests and Levels -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Quests and Levels"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Check quests, progress, and XP rewards."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnQuestsLevels"
+                            android:text="Quest Board"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ROW 2: Boss + Tracker -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Daily Boss Battle -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Daily Boss Battle"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Face today's challenge and build streaks."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnBossBattle"
+                            android:text="Start Battle"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <!-- Progress Tracking -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Progress Tracking"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Timer, reflections, and XP growth."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnProgressTracker"
+                            android:text="Open Tracker"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ROW 3: Cosmetics + Mentor -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Cosmetics and Rewards -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Cosmetics and Rewards"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Avatars, badges, and stash management."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnCosmetics"
+                            android:text="View Rewards"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <!-- Voice AI Mentor -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="Voice AI Mentor"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Get realtime guidance or reflections."
+                            android:textColor="#A0B3FF"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <Button
+                            android:id="@+id/btnVoiceMentor"
+                            android:text="Talk to Mentor"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/bg_primary_button"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:text="Where to next?"
-            android:textColor="@color/frost"
-            android:textStyle="bold"
-            android:layout_marginTop="22dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Social Features"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Friends, leaderboards, and the squad."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnSocialHub"
-                        android:text="Open Socials"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Quests &amp; Levels"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Track your climb and claim XP rewards."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnQuestsLevels"
-                        android:text="Quest Board"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Daily Boss Battle"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Face today's challenge and win XP streaks."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnBossBattle"
-                        android:text="Start Battle"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Progress Tracking"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Timer, reflections, and XP growth."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnProgressTracker"
-                        android:text="Open Tracker"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Cosmetics &amp; Rewards"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Avatars, badges, and stash management."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnCosmetics"
-                        android:text="View Rewards"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Voice AI Mentor"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Get realtime guidance or reflections."
-                        android:textColor="@color/frost"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/btnVoiceMentor"
-                        android:text="Talk to Mentor"
-                        android:textColor="@color/white"
-                        android:background="@drawable/bg_primary_button"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

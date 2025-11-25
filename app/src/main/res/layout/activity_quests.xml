@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0F2A">
+
+    <!-- FULL-WIDTH HEADER IMAGE -->
+    <ImageView
+        android:id="@+id/headerImage"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/header"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <!-- TITLE UNDER IMAGE -->
+    <TextView
+        android:id="@+id/textTodaysQuests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="Today's Quests:"
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/jersey15_regular" />
+
+    <!-- SCROLLABLE QUEST LIST -->
+    <ListView
+        android:id="@+id/listQuests"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:background="#0B0F2A" />
+
+    <Button
+        android:id="@+id/btnOpenStudyCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Open Study Calendar"
+        android:textAllCaps="false"
+        android:textColor="#0B0F2A"
+        android:textStyle="bold"
+        android:backgroundTint="#6EC3FF" />
+
+
+</LinearLayout>

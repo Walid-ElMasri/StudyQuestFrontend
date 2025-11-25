@@ -22,7 +22,12 @@
         <activity android:name=".BossActivity" />
         <activity android:name=".ProgressActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".QuestsActivity" />
+        <activity android:name=".TimerQuestActivity" />
+        <activity android:name=".FlashcardQuestActivity" />
+        <activity android:name=".CalendarQuestActivity" />
         <activity android:name=".SocialActivity" />
+
 
         <!-- Launcher screen -->
         <activity

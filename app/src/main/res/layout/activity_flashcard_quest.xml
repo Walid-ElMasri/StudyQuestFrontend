@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#0B0F2A"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 📝 User study text for AI flashcards -->
+        <EditText
+            android:id="@+id/editFlashcardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Paste your study text here for AI flashcards"
+            android:minLines="4"
+            android:gravity="top|start"
+            android:background="#1A2140"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 🔁 Button to ask AI to generate questions -->
+        <Button
+            android:id="@+id/btnGenerateQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate Questions with AI"
+            android:layout_marginBottom="24dp" />
+
+        <!-- ℹ️ Header / hint + correct counter (card area) -->
+        <TextView
+            android:id="@+id/textFlashcardHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question 1 of 10"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textFlashcardCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 / 10 correct"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ❓ Question text -->
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Question will appear here"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ✍️ User answer input -->
+        <EditText
+            android:id="@+id/editUserAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your answer here"
+            android:minLines="2"
+            android:gravity="top|start"
+            android:background="#1A2140"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- ✅ Check / reveal answer -->
+        <Button
+            android:id="@+id/btnCheckAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check Answer"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Correct vs user answer (shown after check) -->
+        <TextView
+            android:id="@+id/textCorrectAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#A5FFAA"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textUserAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFAAAA"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 👍 / 👎 mark card -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnMarkCorrect"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Mark Correct" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/btnMarkWrong"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Mark Wrong" />
+        </LinearLayout>
+
+        <!-- ⏸️ Continue later -->
+        <Button
+            android:id="@+id/btnContinueLater"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continue Later"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 🧾 Summary once all cards are answered -->
+        <TextView
+            android:id="@+id/textSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:background="#1A2140"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 🎯 Finish quest -->
+        <Button
+            android:id="@+id/btnFinishFlashcards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finish Quest"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

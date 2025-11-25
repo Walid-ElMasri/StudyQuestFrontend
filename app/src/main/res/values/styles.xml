@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CalendarWeekDayText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/calendar_text_white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="CalendarDateText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/calendar_text_white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="CalendarWhiteText" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:colorForeground">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>
