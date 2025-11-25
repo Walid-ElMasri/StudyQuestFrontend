@@ -63,11 +63,6 @@ public class HomeActivity extends AppCompatActivity {
         boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
         tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));
         mentor.setOnClickListener(v -> startActivity(new Intent(this, TextAiActivity.class)));
-
-        cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
-        boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
-        tracker.setOnClickListener(v -> startActivity(new Intent(this, ProgressActivity.class)));
-        mentor.setOnClickListener(v -> startActivity(new Intent(this, TextAiActivity.class)));
     }
 
     void loadUser() {
