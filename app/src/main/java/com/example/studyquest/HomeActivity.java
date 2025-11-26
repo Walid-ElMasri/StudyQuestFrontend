@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         cosmetics.setOnClickListener(v -> openPlayground("Customize avatars and badges."));
         boss.setOnClickListener(v -> startActivity(new Intent(this, BossActivity.class)));
         tracker.setOnClickListener(v -> {
+            String u = username.getText().toString().trim();
             if (u.isEmpty()) u = "nour"; // fallback
             Intent intent = new Intent(this, BossActivity.class);
             intent.putExtra("username", u);
