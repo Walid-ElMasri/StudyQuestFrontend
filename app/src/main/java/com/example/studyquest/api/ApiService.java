@@ -111,12 +111,6 @@ public interface ApiService {
     // GET /boss/status?user=
     @GET("boss/status")
     Call<BossStatusResponse> getBossStatus(@Query("user") String username);
-    
-    @GET("boss/question")
-    Call<BossQuestionResponse> getBossQuestion(@Query("user") String user);
-    
-    @POST("boss/forfeit")
-    Call<BossEndResponse> forfeit(@Query("user") String user);
 
 
     // ---------- SOCIAL ----------
@@ -151,3 +145,4 @@ public interface ApiService {
     @POST("/ai/flashcards")
     Call<FlashcardResponse> generateFlashcards(@Body FlashcardRequest request);
 }
+

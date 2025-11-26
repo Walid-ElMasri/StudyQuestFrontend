@@ -1,187 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollRoot"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient">
+    android:layout_height="match_parent">
 
-     <LinearLayout
-        android:orientation="vertical"
-        android:padding="20dp"
+    <TextView
+        android:text="Boss Battle"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editBossUsername"
+        android:hint="Username"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/textHeadlineBoss"
-            android:text="Daily Boss Battle"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
-        <TextView
-            android:text="Face today's challenge — answer questions to earn XP!"
-            android:textColor="@color/frost"
-            android:layout_marginTop="6dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnStartBoss"
+        android:text="Start"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-        <!-- Status Card -->
-        <LinearLayout
-            android:id="@+id/cardStatus"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="14dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ProgressBar
+        android:id="@+id/progressBarBoss"
+        android:visibility="gone"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="Timer"
-                    android:textColor="@color/frost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/textTimer"
-                    android:text="--s"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="Lives"
-                    android:textColor="@color/frost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/textLives"
-                    android:text="--"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="Score"
-                    android:textColor="@color/frost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/textScore"
-                    android:text="0"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Question Card -->
-        <LinearLayout
-            android:id="@+id/cardQuestion"
-            android:orientation="vertical"
-            android:background="@drawable/bg_card"
-            android:padding="14dp"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textQuestionNumber"
-                android:text="Question 1/5"
-                android:textColor="@color/frost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textQuestion"
-                android:text="Question text will appear here"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <RadioGroup
-                android:id="@+id/radioAnswers"
-                android:orientation="vertical"
-                android:layout_marginTop="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!-- RadioButtons added dynamically -->
-            </RadioGroup>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/btnSubmitAnswer"
-                    android:text="Submit"
-                    android:textColor="@color/white"
-                    android:background="@drawable/bg_primary_button"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/btnForfeit"
-                    android:text="Forfeit"
-                    android:textColor="@color/white"
-                    android:background="@drawable/bg_primary_button"
-                    android:layout_marginStart="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textFeedback"
-                android:text=""
-                android:layout_marginTop="10dp"
-                android:textColor="@color/frost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/progressBoss"
-            android:visibility="gone"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-</ScrollView>
+    <TextView
+        android:id="@+id/textBossResult"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

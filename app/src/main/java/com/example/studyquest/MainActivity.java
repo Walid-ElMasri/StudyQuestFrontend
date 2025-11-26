@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
         setLoading(true);
         setOutput("Submitting answer...");
 
-        api.submitBossAnswer(new BossAnswerRequest(username, Integer.parseInt(answer))).enqueue(new Callback<BossAnswerResponse>() {
+        api.submitBossAnswer(new BossAnswerRequest(username, answer)).enqueue(new Callback<BossAnswerResponse>() {
             @Override public void onResponse(Call<BossAnswerResponse> call, Response<BossAnswerResponse> resp) {
                 setLoading(false);
                 if (resp.isSuccessful() && resp.body() != null) {
