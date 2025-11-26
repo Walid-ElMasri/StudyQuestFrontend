@@ -55,20 +55,13 @@ public interface ApiService {
     @POST("quests/")
     Call<Quest> createQuest(@Body QuestCreateRequest request);
 
-    // GET /quests/available?user=
-    @GET("quests/available")
-    Call<AvailableQuestsResponse> getAvailableQuests(@Query("user") String username);
+    // PUT /quests/{quest_id}/complete
+    @PUT("quests/{quest_id}/complete")
+    Call<QuestCompleteResponse> completeQuest(@Path("quest_id") int questId);
 
-    // POST /quests/complete/{quest_id}?user=
-    @POST("quests/complete/{quest_id}")
-    Call<QuestCompleteResponse> completeQuest(
-            @Path("quest_id") int questId,
-            @Query("user") String username
-    );
-
-    // GET /quests/levels?user=
-    @GET("quests/levels")
-    Call<QuestLevelData> getUserLevel(@Query("user") String username);
+    // GET /quests/level/{username}
+    @GET("quests/level/{username}")
+    Call<QuestLevelData> getUserLevel(@Path("username") String username);
 
 
     // ---------- COSMETICS ----------
@@ -104,6 +97,9 @@ public interface ApiService {
     @POST("boss/start")
     Call<BossStartResponse> startBoss(@Body BossStartRequest request);
 
+    @GET("boss/question")
+    Call<BossQuestionResponse> getBossQuestion(@Query("user") String user);
+
     // POST /boss/answer
     @POST("boss/answer")
     Call<BossAnswerResponse> submitBossAnswer(@Body BossAnswerRequest request);
@@ -111,6 +107,9 @@ public interface ApiService {
     // GET /boss/status?user=
     @GET("boss/status")
     Call<BossStatusResponse> getBossStatus(@Query("user") String username);
+
+    @POST("boss/forfeit")
+    Call<BossEndResponse> forfeit(@Query("user") String user);
 
 
     // ---------- SOCIAL ----------
@@ -130,19 +129,9 @@ public interface ApiService {
     @GET("social/leaderboard")
     Call<List<LeaderboardEntry>> getLeaderboard();
 
-    // GET /social/friends/list
     @GET("social/friends/list")
     Call<List<Friend>> listFriends(@Query("user") String username);
 
-    // DELETE /social/friends/remove
     @DELETE("social/friends/remove")
-    Call<GenericMessageResponse> removeFriend(
-            @Query("user") String user,
-            @Query("friend_username") String friendUsername
-    );
-
-    // POST /ai/flashcards
-    @POST("/ai/flashcards")
-    Call<FlashcardResponse> generateFlashcards(@Body FlashcardRequest request);
+    Call<GenericMessageResponse> removeFriend(@Query("user") String user, @Query("friend_username") String friendUsername);
 }
-

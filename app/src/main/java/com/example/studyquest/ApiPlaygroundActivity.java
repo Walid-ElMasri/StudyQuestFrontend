@@ -223,29 +223,18 @@ public class ApiPlaygroundActivity extends AppCompatActivity {
     private void callCompleteQuest() {
         String idStr = editExtra1.getText().toString().trim();
         if (idStr.isEmpty()) { editExtra1.setError("quest_id"); return; }
-
-        String u = editUsername.getText().toString().trim();
-        if (u.isEmpty()) { editUsername.setError("username"); return; }
-
         int id = Integer.parseInt(idStr);
 
-        api.completeQuest(id, u).enqueue(new Callback<QuestCompleteResponse>() {
-            @Override
-            public void onResponse(Call<QuestCompleteResponse> call, Response<QuestCompleteResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    setOutput(resp.body().toString());
-                } else {
-                    setOutput("Error complete quest: " + resp.code());
-                }
+        api.completeQuest(id).enqueue(new Callback<QuestCompleteResponse>() {
+            @Override public void onResponse(Call<QuestCompleteResponse> call, Response<QuestCompleteResponse> resp) {
+                if (resp.isSuccessful() && resp.body() != null) setOutput(resp.body().toString());
+                else setOutput("Error complete quest: " + resp.code());
             }
-
-            @Override
-            public void onFailure(Call<QuestCompleteResponse> call, Throwable t) {
+            @Override public void onFailure(Call<QuestCompleteResponse> call, Throwable t) {
                 setOutput("Error: " + t.getMessage());
             }
         });
     }
-
 
     private void callUserLevel() {
         String u = editUsername.getText().toString().trim();
@@ -357,7 +346,7 @@ public class ApiPlaygroundActivity extends AppCompatActivity {
         if (u.isEmpty()) { editUsername.setError("username"); return; }
         if (ans.isEmpty()) { editExtra1.setError("answer"); return; }
 
-        BossAnswerRequest req = new BossAnswerRequest(u, ans);
+        BossAnswerRequest req = new BossAnswerRequest(u, Integer.parseInt(ans));
         api.submitBossAnswer(req).enqueue(new Callback<BossAnswerResponse>() {
             @Override public void onResponse(Call<BossAnswerResponse> call, Response<BossAnswerResponse> resp) {
                 if (resp.isSuccessful() && resp.body() != null) setOutput(resp.body().toString());
