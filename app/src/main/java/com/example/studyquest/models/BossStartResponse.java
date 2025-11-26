@@ -1,17 +1,16 @@
 package com.example.studyquest.models;
 
 public class BossStartResponse {
-    public String boss_name;
-    public int boss_hp;
-    public int user_hp;
-    public int reward_xp;
+    public String message;
+    public String user;
+    public Integer timer_seconds;
+    public Integer lives;
+    public CurrentQuestion current_question;
 
-    @Override
-    public String toString() {
-        return "Boss: " + boss_name +
-                "\nBoss HP: " + boss_hp +
-                "\nYour HP: " + user_hp +
-                "\nReward XP: " + reward_xp;
+    public static class CurrentQuestion {
+        public Integer number;
+        public Integer total;
+        public String question;
+        public java.util.List<String> choices;
     }
 }
-
