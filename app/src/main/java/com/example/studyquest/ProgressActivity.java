@@ -44,6 +44,7 @@ public class ProgressActivity extends AppCompatActivity {
     private boolean timerRunning = false;
     private String selectedDateIso;
     private int promptIndex = 0;
+    private static final int XP_PER_MINUTE = ProgressItem.XP_PER_MINUTE;
     private final String[] prompts = new String[]{
             "What worked well in this session and why?",
             "Where did focus slip, and what will you change next time?",
@@ -144,6 +145,7 @@ public class ProgressActivity extends AppCompatActivity {
 
         String subject = subjectInput.getText().toString().trim();
         String reflection = reflectionInput.getText().toString().trim();
+        final int computedXp = minutes * XP_PER_MINUTE;
 
         progress.setVisibility(ProgressBar.VISIBLE);
         result.setText("Logging session...");
@@ -155,15 +157,16 @@ public class ProgressActivity extends AppCompatActivity {
                         progress.setVisibility(ProgressBar.GONE);
                         if (resp.isSuccessful() && resp.body() != null) {
                             ProgressLogResponse body = resp.body();
+                            int awardedXp = Math.max(body.gained_xp, computedXp);
                             StringBuilder sb = new StringBuilder();
                             sb.append("Logged ").append(minutes).append(" min");
                             if (!subject.isEmpty()) sb.append(" on ").append(subject);
-                            sb.append(".\nGained XP: ").append(body.gained_xp)
+                            sb.append(".\nGained XP: ").append(awardedXp)
                                     .append("\nNew streak: ").append(body.new_streak).append(" days");
                             if (selectedDateIso != null) sb.append("\nCalendar day: ").append(selectedDateIso);
                             if (!reflection.isEmpty()) sb.append("\nReflection saved: ").append(reflection);
                             result.setText(sb.toString());
-                            summary.setText("Newest session: +" + body.gained_xp + " XP from "
+                            summary.setText("Newest session: +" + awardedXp + " XP from "
                                     + minutes + " minutes");
 
                             // Pull fresh history so the timeline and totals update right away.
@@ -196,17 +199,18 @@ public class ProgressActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder("Study Sessions:\n\n");
         for (ProgressItem item : items) {
+            int itemXp = item.getXpWithFallback();
             totalMinutes += item.minutes;
-            totalXp += item.xp;
+            totalXp += itemXp;
             String date = extractDate(item.timestamp);
             if (selectedDateIso != null && selectedDateIso.equals(date)) {
                 selectedDayMinutes += item.minutes;
-                selectedDayXp += item.xp;
+                selectedDayXp += itemXp;
             }
             sb.append(date).append(" • ")
                     .append(item.subject == null ? "Session" : item.subject)
                     .append("\n  ").append(item.minutes).append(" min, +")
-                    .append(item.xp).append(" XP\n\n");
+                    .append(itemXp).append(" XP\n\n");
         }
 
         result.setText(sb.toString());

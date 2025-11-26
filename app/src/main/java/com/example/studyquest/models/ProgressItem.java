@@ -12,9 +12,15 @@ public class ProgressItem {
     public String subject;
     public int xp;
 
+    public static final int XP_PER_MINUTE = 2;
+
     @Override
     public String toString() {
         return timestamp + " - " + subject +
-                " (" + minutes + " min, " + xp + " XP)";
+                " (" + minutes + " min, " + getXpWithFallback() + " XP)";
+    }
+
+    public int getXpWithFallback() {
+        return Math.max(xp, minutes * XP_PER_MINUTE);
     }
 }
