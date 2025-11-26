@@ -357,7 +357,7 @@ public class ApiPlaygroundActivity extends AppCompatActivity {
         if (u.isEmpty()) { editUsername.setError("username"); return; }
         if (ans.isEmpty()) { editExtra1.setError("answer"); return; }
 
-        BossAnswerRequest req = new BossAnswerRequest(u, ans);
+        BossAnswerRequest req = new BossAnswerRequest(u, Integer.parseInt(ans));
         api.submitBossAnswer(req).enqueue(new Callback<BossAnswerResponse>() {
             @Override public void onResponse(Call<BossAnswerResponse> call, Response<BossAnswerResponse> resp) {
                 if (resp.isSuccessful() && resp.body() != null) setOutput(resp.body().toString());
@@ -440,4 +440,3 @@ public class ApiPlaygroundActivity extends AppCompatActivity {
         });
     }
 }
-

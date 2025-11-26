@@ -2,11 +2,10 @@ package com.example.studyquest.models;
 
 public class BossAnswerRequest {
     public String user;
-    public String answer;
+    public Integer choice_idx;
 
-    public BossAnswerRequest(String user, String answer) {
+    public BossAnswerRequest(String user, Integer choice_idx) {
         this.user = user;
-        this.answer = answer;
+        this.choice_idx = choice_idx;
     }
 }
-
